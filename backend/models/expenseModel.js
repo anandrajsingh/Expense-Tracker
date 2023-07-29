@@ -1,27 +1,27 @@
-const { default: mongoose } = require('mongoose');
-const Mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
 
 const ExpenseSchema = new mongoose.Schema({
-    title : {
-        type : String,
-        required : true,
-        trim : true,
+    title: {
+        type: String,
+        required: true,
+        trim: true,
         maxLength: 50
     },
-    amount : {
+    amount: {
         type: Number,
-        required : true,
-        maxLength : 20,
-        trim : true
+        required: true,
+        maxLength: 20,
+        trim: true
     },
     type: {
-        type : String,
-        default : "Expense"
+        type: String,
+        default:"expense"
     },
     date: {
-        type : String,
-        required : true,
-        trim : true
+        type: String,
+        required: true,
+        trim: true
     },
     category: {
         type: String,
