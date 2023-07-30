@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import styled from "styled-components";
 import { useGlobalContext } from './context/globalContext';
+import {MainLayout} from './styles/Layouts'
 
 function App() {
   const [active, setActive] = useState(1)
@@ -32,6 +33,9 @@ function App() {
   return (
     <AppStyled bg={bg} className="App">
       {orbMemo}
+      <MainLayout>
+
+      </MainLayout>
     </AppStyled>
   );
 }
