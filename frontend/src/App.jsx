@@ -2,6 +2,11 @@ import React, { useState, useMemo } from 'react'
 import styled from "styled-components";
 import { useGlobalContext } from './context/globalContext';
 import {MainLayout} from './styles/Layouts'
+import Orb from './Components/Orb/Orb'
+import Navigation from './Components/Navigation'
+import Dashboard from './Components/Dashboard/Dashboard';
+import Income from './Components/Income/Income'
+import Expenses from './Components/Expenses/Expenses';
 
 function App() {
   const [active, setActive] = useState(1)
@@ -12,6 +17,21 @@ function App() {
   const orbMemo = useMemo(() => {
     return <Orb />
   }, [])
+
+  const displayData = () => {
+    switch(active){
+      case 1:
+        return <Dashboard />
+      case 2:
+        return <Dashboard />
+      case 3:
+        return <Income />
+      case 4:
+        return <Expenses/>
+      default:
+        return <Dashboard />
+    }
+  }
 
   const AppStyled = styled.div`
     height: 100vh;
@@ -34,7 +54,8 @@ function App() {
     <AppStyled bg={bg} className="App">
       {orbMemo}
       <MainLayout>
-
+        <Navigation active={active} setActive={setActive}/>
+        <main>{displayData()}</main>
       </MainLayout>
     </AppStyled>
   );
